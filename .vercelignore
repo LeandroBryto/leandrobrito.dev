@@ -1,7 +1,6 @@
 # Development files
 node_modules/
 .angular/
-src/
 
 # Configuration files
 .editorconfig
