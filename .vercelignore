@@ -1,11 +1,12 @@
-node_modules
-.angular
-src
-*.ts
-*.spec.ts
-tsconfig.json
-angular.json
+# Development files
+node_modules/
+.angular/
+src/
+
+# Configuration files
 .editorconfig
 .gitignore
 README.md
-package-lock.json
+
+# VS Code
+.vscode/
