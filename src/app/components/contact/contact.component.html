@@ -51,32 +51,97 @@
       
       <div class="contact-form">
         <h3>Envie uma Mensagem</h3>
-        <form class="form">
+        <!-- Success Message -->
+        <div *ngIf="showSuccess" class="form-success">
+          ✅ Mensagem enviada com sucesso! Entrarei em contato em breve.
+        </div>
+        
+        <!-- Error Message -->
+        <div *ngIf="showError" class="form-error">
+          ❌ {{ errorMessage }}
+        </div>
+        
+        <form class="form" #contactFormRef="ngForm" (ngSubmit)="onSubmit(contactFormRef)">
           <div class="form-group">
             <label for="name">Nome</label>
-            <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              [(ngModel)]="contactForm.name"
+              placeholder="Seu nome completo" 
+              required 
+              minlength="2"
+              #nameField="ngModel"
+              [class.error]="nameField.invalid && nameField.touched">
+            <span *ngIf="nameField.invalid && nameField.touched" class="error-message">
+              Nome é obrigatório (mínimo 2 caracteres)
+            </span>
           </div>
           
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="contactForm.email"
+              placeholder="seu.email@exemplo.com" 
+              required 
+              email
+              #emailField="ngModel"
+              [class.error]="emailField.invalid && emailField.touched">
+            <span *ngIf="emailField.invalid && emailField.touched" class="error-message">
+              <span *ngIf="emailField.errors?.['required']">Email é obrigatório</span>
+              <span *ngIf="emailField.errors?.['email']">Email deve ter um formato válido</span>
+            </span>
           </div>
           
           <div class="form-group">
             <label for="subject">Assunto</label>
-            <input type="text" id="subject" name="subject" placeholder="Assunto da mensagem" required>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              [(ngModel)]="contactForm.subject"
+              placeholder="Assunto da mensagem" 
+              required 
+              minlength="3"
+              #subjectField="ngModel"
+              [class.error]="subjectField.invalid && subjectField.touched">
+            <span *ngIf="subjectField.invalid && subjectField.touched" class="error-message">
+              Assunto é obrigatório (mínimo 3 caracteres)
+            </span>
           </div>
           
           <div class="form-group">
             <label for="message">Mensagem</label>
-            <textarea id="message" name="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+            <textarea 
+              id="message" 
+              name="message" 
+              [(ngModel)]="contactForm.message"
+              rows="5" 
+              placeholder="Sua mensagem..." 
+              required 
+              minlength="10"
+              #messageField="ngModel"
+              [class.error]="messageField.invalid && messageField.touched"></textarea>
+            <span *ngIf="messageField.invalid && messageField.touched" class="error-message">
+              <span *ngIf="messageField.errors?.['required']">Mensagem é obrigatória</span>
+              <span *ngIf="messageField.errors?.['minlength']">Mensagem deve ter pelo menos 10 caracteres</span>
+            </span>
           </div>
           
-          <button type="submit" class="btn btn-primary btn-full">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <button 
+            type="submit" 
+            class="btn btn-primary btn-full"
+            [class.loading]="isLoading"
+            [disabled]="isLoading || contactFormRef.invalid">
+            <svg *ngIf="!isLoading" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
             </svg>
-            Enviar Mensagem
+            <span *ngIf="!isLoading">Enviar Mensagem</span>
+            <span *ngIf="isLoading">Enviando...</span>
           </button>
         </form>
       </div>

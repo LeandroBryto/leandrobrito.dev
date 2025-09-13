@@ -23,18 +23,19 @@
   padding: 1rem 2rem;
 }
 
-.logo h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
+.logo {
+  display: flex;
+  align-items: center;
 }
 
-.logo .subtitle {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  margin: 0;
-  font-weight: 400;
+.logo-image {
+  height: 50px;
+  width: auto;
+  transition: transform 0.2s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
 }
 
 .nav {
@@ -122,8 +123,8 @@
     padding: 0.75rem 1rem;
   }
   
-  .logo h1 {
-    font-size: 1.25rem;
+  .logo-image {
+    height: 42px;
   }
   
   .nav {

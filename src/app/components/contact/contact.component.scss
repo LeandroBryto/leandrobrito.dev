@@ -338,25 +338,44 @@
 /* Form validation styles */
 .form-group input.error,
 .form-group textarea.error {
-  border-color: var(--error-color);
+  border-color: #ef4444;
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
 .error-message {
-  color: var(--error-color);
   font-size: 0.75rem;
   margin-top: 0.25rem;
   display: block;
+  color: #ef4444;
 }
 
 /* Success state */
 .form-success {
-  background: var(--success-color);
+  background: #10b981;
   color: white;
   padding: 1rem;
   border-radius: var(--radius-md);
   margin-bottom: 1rem;
   text-align: center;
+  font-weight: 500;
+}
+
+/* Error state */
+.form-error {
+  background: #ef4444;
+  color: white;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Disabled button state */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
 }
 
 /* Loading state */
