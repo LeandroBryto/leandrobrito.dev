@@ -137,8 +137,9 @@
 }
 
 .profile-card p {
-  color: var(--text-secondary);
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .profile-stats {
@@ -163,7 +164,7 @@
 
 .stat-label {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: var(--text-primary);
   font-weight: 500;
 }
 
