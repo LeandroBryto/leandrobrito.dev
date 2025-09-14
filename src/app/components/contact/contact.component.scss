@@ -48,7 +48,7 @@
 }
 
 .contact-card {
-  background: white;
+  background: var(--bg-primary);
   padding: 1.5rem;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
@@ -120,7 +120,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: white;
+  background: var(--bg-primary);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-light);
@@ -196,7 +196,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
-  background: white;
+  background: var(--bg-primary);
   border-radius: var(--radius-lg);
   color: var(--text-secondary);
   text-decoration: none;
@@ -234,7 +234,7 @@
 }
 
 .contact-form {
-  background: white;
+  background: var(--bg-primary);
   padding: 2rem;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
@@ -251,6 +251,11 @@
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
+}
+
+:host-context(.dark-theme) .form-header h3 {
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .form-header p {
@@ -270,6 +275,11 @@
   margin-bottom: 0.5rem;
 }
 
+:host-context(.dark-theme) .form-group label {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -282,11 +292,25 @@
   color: var(--text-primary);
 }
 
+:host-context(.dark-theme) .form-group input,
+:host-context(.dark-theme) .form-group textarea {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+:host-context(.dark-theme) .form-group input::placeholder,
+:host-context(.dark-theme) .form-group textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  background-color: var(--bg-primary);
 }
 
 .form-group textarea {
