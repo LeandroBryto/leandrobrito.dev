@@ -18,6 +18,11 @@
   margin-bottom: 1rem;
 }
 
+:host-context(.dark-theme) .section-title {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
 .section-subtitle {
   font-size: 1.125rem;
   color: var(--text-secondary);
@@ -34,7 +39,7 @@
 }
 
 .project-card {
-  background: white;
+  background: var(--bg-primary);
   border-radius: var(--radius-xl);
   padding: 2rem;
   box-shadow: var(--shadow-lg);
@@ -43,6 +48,11 @@
   animation: fadeInUp 0.8s ease-out;
   position: relative;
   overflow: hidden;
+}
+
+:host-context(.dark-theme) .project-card {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
 }
 
 .project-card:hover {
@@ -110,6 +120,11 @@
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
+}
+
+:host-context(.dark-theme) .project-title {
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .project-description {

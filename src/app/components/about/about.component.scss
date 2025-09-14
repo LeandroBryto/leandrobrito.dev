@@ -26,6 +26,11 @@
   color: var(--text-primary);
 }
 
+:host-context(.dark-theme) .hero-title {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
 .highlight {
   background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
   -webkit-background-clip: text;
@@ -97,13 +102,18 @@
 }
 
 .profile-card {
-  background: white;
+  background: var(--bg-primary);
   border-radius: var(--radius-xl);
   padding: 2rem;
   box-shadow: var(--shadow-xl);
   text-align: center;
   border: 1px solid var(--border-light);
   transition: transform 0.3s ease;
+}
+
+:host-context(.dark-theme) .profile-card {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
 }
 
 .profile-card:hover {
@@ -165,6 +175,11 @@
   font-size: 0.875rem;
   color: var(--text-muted);
   font-weight: 500;
+}
+
+:host-context(.dark-theme) .stat-label {
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 
 /* Mobile Styles */
